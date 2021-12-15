@@ -19,7 +19,15 @@ def state():
 
 @app.route('/live-state')
 def live_state():
-    response = make_response(send_json.send_state_one())
+    response = make_response(send_json.send_state_one1_1())
+
+    response.content_type = 'application/json'
+
+    return response
+
+@app.route('/live-state2')
+def live_state2():
+    response = make_response(send_json.send_state_one1_2())
 
     response.content_type = 'application/json'
 
@@ -27,5 +35,5 @@ def live_state():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(debug=True, port=5001, host='0.0.0.0')
 

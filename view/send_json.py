@@ -94,18 +94,33 @@ def send_humi():
 
 
 ### Test send Json not listing task
-def send_state_one():
+def send_state_one1_1():
 
     db_class    = dbModule.Database()
 
-    sql         = "select temp,humi,soil_humi from dataTable_1;"
+    sql         = "select temp,humi,soil_humi from dataTable_1_1;"
     row         = db_class.executeOne(sql)
 
     test_json = json.dumps(row)
 
-    print("send_temp Data:",row)
+    print("send_temp Data11:",row)
 
     return row
+
+### Test send Json not listing task
+def send_state_one1_2():
+
+    db_class    = dbModule.Database()
+
+    sql         = "select temp,humi,soil_humi from dataTable_1_2;"
+    row         = db_class.executeOne(sql)
+
+    test_json = json.dumps(row)
+
+    print("send_temp Data12:",row)
+
+    return row
+
 ### Test send Json All DB data
 def send_all_test():
 
@@ -136,6 +151,15 @@ def send_5_test():
 
 ####
 
+def show_table():
+
+    db_class    = dbModule.Database()
+
+    sql         = "show tables;"
+    row         = db_class.executeOne()
+
+    print(row)
+
 #
 # test =send_state_one()
 # print("print send one time", test)
@@ -144,4 +168,6 @@ def send_5_test():
 
 # test = send_all_test()
 # print("print send one time", test)
+
+# show_table()
 
